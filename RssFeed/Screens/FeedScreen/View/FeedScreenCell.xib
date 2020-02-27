@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="0Oe-CU-oyw" customClass="FeedScreenCell" customModule="RssFeed" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Oe-CU-oyw" id="9Xu-gE-WSX">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3py-9h-fSM">
+                        <rect key="frame" x="20" y="15" width="344" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWv-i4-xpo">
+                        <rect key="frame" x="20" y="44" width="384" height="72"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OWv-i4-xpo" firstAttribute="leading" secondItem="9Xu-gE-WSX" secondAttribute="leading" constant="20" id="02l-yX-j6W"/>
+                    <constraint firstItem="3py-9h-fSM" firstAttribute="leading" secondItem="9Xu-gE-WSX" secondAttribute="leading" constant="20" id="7U5-ip-KC9"/>
+                    <constraint firstAttribute="bottom" secondItem="OWv-i4-xpo" secondAttribute="bottom" constant="5" id="A6n-y3-AFU"/>
+                    <constraint firstItem="OWv-i4-xpo" firstAttribute="top" secondItem="3py-9h-fSM" secondAttribute="bottom" constant="5" id="UkE-Af-QFU"/>
+                    <constraint firstItem="3py-9h-fSM" firstAttribute="top" secondItem="9Xu-gE-WSX" secondAttribute="top" constant="15" id="nyR-OG-bg1"/>
+                    <constraint firstAttribute="trailing" secondItem="OWv-i4-xpo" secondAttribute="trailing" constant="10" id="so3-0C-TDQ"/>
+                    <constraint firstAttribute="trailing" secondItem="3py-9h-fSM" secondAttribute="trailing" constant="50" id="uB0-cC-5aw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="OWv-i4-xpo" id="Suo-6X-Kgq"/>
+                <outlet property="titleLabel" destination="3py-9h-fSM" id="aLj-gg-06x"/>
+            </connections>
+            <point key="canvasLocation" x="208.69565217391306" y="153.01339285714286"/>
+        </tableViewCell>
+    </objects>
+</document>
