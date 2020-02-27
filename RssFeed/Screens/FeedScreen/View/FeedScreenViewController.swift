@@ -74,7 +74,8 @@ extension FeedScreenViewController: UITableViewDelegate, UITableViewDataSource {
             coordinator.showErrorAlert(with: customError)
             return
         }
-        coordinator.showWebView(for: url)
+        coordinator.showSafari(with: url)
+
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {

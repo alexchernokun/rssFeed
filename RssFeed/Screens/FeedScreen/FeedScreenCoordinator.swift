@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class FeedScreenCoordinator: Coordinator {
     
@@ -27,8 +28,9 @@ class FeedScreenCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showWebView(for url: URL) {
-        
+    func showSafari(with url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+        navigationController.showDetailViewController(safariViewController, sender: self)
     }
     
     func showErrorAlert(with error: CustomError) {

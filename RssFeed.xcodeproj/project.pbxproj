@@ -98,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				63A579D82407E438005BDCBC /* FeedScreen */,
-				63A579D92407E44A005BDCBC /* RSSItemWebView */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -113,13 +112,6 @@
 				63A579E12407E59C005BDCBC /* ViewModel */,
 			);
 			path = FeedScreen;
-			sourceTree = "<group>";
-		};
-		63A579D92407E44A005BDCBC /* RSSItemWebView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RSSItemWebView;
 			sourceTree = "<group>";
 		};
 		63A579DA2407E496005BDCBC /* Protocols */ = {
