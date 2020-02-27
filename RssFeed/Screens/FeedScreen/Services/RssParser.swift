@@ -29,6 +29,8 @@ class RssParser: NSObject {
             guard let self = self else { return }
             switch result {
             case .success(let rssData):
+                // for refreshes
+                self.rssFeedItems.removeAll()
                 self.startParsing(rssData)
                 completion(.success(self.rssFeedItems))
             case .failure(let error):

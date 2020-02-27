@@ -13,6 +13,9 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
     var viewModel: FeedScreenViewModel!
     var coordinator: FeedScreenCoordinator!
     
+    private let refreshControl = UIRefreshControl()
+    private let spinner = UIActivityIndicatorView(style: .gray)
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,6 +28,7 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
         viewModel.getRssFeed()
     }
     
+    // MARK: Private methods
     private func setupUI() {
         self.title = viewModel.navTitle
     }
@@ -32,6 +36,12 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        tableView.backgroundView = spinner
+        spinner.startAnimating()
+        
         let cellNib = UINib(nibName: Constants.Cell.feedCellName, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: Constants.Cell.feedCellIdentifier)
     }
@@ -40,12 +50,24 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
         viewModel.didReceiveRssFeed = { [unowned self] in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.spinner.stopAnimating()
+                if self.refreshControl.isRefreshing {
+                    self.refreshControl.endRefreshing()
+                }
             }
         }
         viewModel.failedToReceiveRssFeed = { [unowned self] error in
+            self.spinner.stopAnimating()
             let customError = CustomError.somethingWrong(text: error.localizedDescription)
             self.coordinator.showErrorAlert(with: customError)
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
         }
+    }
+    
+    @objc private func refreshTableView() {
+        viewModel.getRssFeed()
     }
     
 }
