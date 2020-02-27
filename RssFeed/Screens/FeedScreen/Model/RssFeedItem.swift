@@ -12,4 +12,8 @@ struct RssFeedItem {
     var title: String
     var description: String
     var link: String
+    
+    var url: URL? {
+        return URL(string: link)
+    }
 }

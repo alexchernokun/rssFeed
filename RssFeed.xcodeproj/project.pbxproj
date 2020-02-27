@@ -25,6 +25,7 @@
 		63A579F62407F203005BDCBC /* RssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A579F52407F203005BDCBC /* RssFeedItem.swift */; };
 		63A579F92407F70D005BDCBC /* RssParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A579F82407F70D005BDCBC /* RssParser.swift */; };
 		63A579FB2407F8C0005BDCBC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A579FA2407F8C0005BDCBC /* NetworkService.swift */; };
+		63A579FD240811AD005BDCBC /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A579FC240811AD005BDCBC /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		63A579F52407F203005BDCBC /* RssFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedItem.swift; sourceTree = "<group>"; };
 		63A579F82407F70D005BDCBC /* RssParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssParser.swift; sourceTree = "<group>"; };
 		63A579FA2407F8C0005BDCBC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		63A579FC240811AD005BDCBC /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				63A579F32407F0A8005BDCBC /* Constants.swift */,
+				63A579FC240811AD005BDCBC /* CustomError.swift */,
 				63A579DA2407E496005BDCBC /* Protocols */,
 			);
 			path = Utils;
@@ -252,6 +255,7 @@
 				63A579E52407E66B005BDCBC /* MainCoordinator.swift in Sources */,
 				63A579F62407F203005BDCBC /* RssFeedItem.swift in Sources */,
 				63A579C62407D93E005BDCBC /* SceneDelegate.swift in Sources */,
+				63A579FD240811AD005BDCBC /* CustomError.swift in Sources */,
 				63A579E72407E6B8005BDCBC /* FeedScreenModel.swift in Sources */,
 				63A579FB2407F8C0005BDCBC /* NetworkService.swift in Sources */,
 				63A579F92407F70D005BDCBC /* RssParser.swift in Sources */,
@@ -399,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G872WZGNJZ;
 				INFOPLIST_FILE = RssFeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,7 +411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cherlex.RssFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -417,6 +422,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G872WZGNJZ;
 				INFOPLIST_FILE = RssFeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +430,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cherlex.RssFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

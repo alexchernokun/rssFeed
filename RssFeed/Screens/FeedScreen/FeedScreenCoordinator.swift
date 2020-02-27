@@ -27,13 +27,21 @@ class FeedScreenCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showWebView() {
+    func showWebView(for url: URL) {
         
     }
     
-    func showErrorAlert(with error: Error) {
+    func showErrorAlert(with error: CustomError) {
         let title = Constants.Alert.errorTitle
-        let message = error.localizedDescription
+        var message = String()
+        
+        switch error {
+        case .badUrl(text: let errorMessage):
+            message = errorMessage
+        case .somethingWrong(text: let errorMessage):
+            message = errorMessage
+        }
+        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: Constants.Alert.okTitle, style: .default, handler: nil)
         alertController.addAction(okAction)

@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     
     struct Alert {
+        static let badUrlTitle = "Incorrect URL"
         static let errorTitle = "Oops, something went wrong"
         static let okTitle = "Ok"
     }

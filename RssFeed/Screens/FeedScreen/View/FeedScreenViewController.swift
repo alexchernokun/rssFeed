@@ -21,6 +21,7 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
         setupUI()
         setupTableView()
         setupViewModelCallbacks()
+        
         viewModel.getRssFeed()
     }
     
@@ -42,7 +43,8 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
             }
         }
         viewModel.failedToReceiveRssFeed = { [unowned self] error in
-            self.coordinator.showErrorAlert(with: error)
+            let customError = CustomError.somethingWrong(text: error.localizedDescription)
+            self.coordinator.showErrorAlert(with: customError)
         }
     }
     
@@ -61,6 +63,18 @@ extension FeedScreenViewController: UITableViewDelegate, UITableViewDataSource {
         let rssFeedItem = rssFeedItems[indexPath.row]
         cell.setupCell(with: rssFeedItem)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let rssFeedItems = viewModel.rssFeedItems else { return }
+        let rssFeedItem = rssFeedItems[indexPath.row]
+        guard let url = rssFeedItem.url else {
+            let customError = CustomError.badUrl(text: Constants.Alert.badUrlTitle)
+            coordinator.showErrorAlert(with: customError)
+            return
+        }
+        coordinator.showWebView(for: url)
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
