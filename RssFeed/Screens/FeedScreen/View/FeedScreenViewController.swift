@@ -28,9 +28,9 @@ class FeedScreenViewController: UIViewController, StoryboardInstantiable {
         viewModel.getRssFeed()
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupUI() {
-        self.title = viewModel.navTitle
+        title = viewModel.navTitle
     }
     
     private func setupTableView() {
@@ -97,7 +97,6 @@ extension FeedScreenViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         coordinator.showSafari(with: url)
-
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {

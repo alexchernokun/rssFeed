@@ -17,12 +17,13 @@ class FeedScreenCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func showFeedScreen() {
+    func start() {
         let model = FeedScreenModel()
         let networkService = NetworkService()
         let rssParserService = RssParser(networkService: networkService)
         let viewModel = FeedScreenViewModel(model: model, rssParserService: rssParserService)
         let vc = FeedScreenViewController.instantiate()
+        vc.tabBarItem = UITabBarItem(title: model.navTitle, image: Images.rss, selectedImage: Images.rssFilled)
         vc.viewModel = viewModel
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)

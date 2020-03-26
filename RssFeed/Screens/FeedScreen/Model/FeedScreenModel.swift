@@ -10,6 +10,6 @@ import Foundation
 
 class FeedScreenModel {
     
-    let navTitle = "Wired RSS Feed"
+    let navTitle = "RSS Feed"
     
 }

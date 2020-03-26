@@ -43,7 +43,7 @@ class RssParser: NSObject {
         self.networkService = networkService
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func startParsing(_ data: Data) {
         xmlParser = XMLParser(data: data)
         xmlParser?.delegate = self
