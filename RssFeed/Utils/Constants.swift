@@ -24,4 +24,9 @@ struct Constants {
         static let feedCellName = "FeedScreenCell"
         static let feedCellIdentifier = "feedCell"
     }
+    
+    struct DateFormat {
+        static let getFormat = "E, d MMM yyyy HH:mm:ss Z"
+        static let returnFormat = "MMM d, yyyy HH:mm"
+    }
 }

@@ -15,6 +15,7 @@ class RssParser: NSObject {
         case title
         case link
         case description
+        case date = "pubDate"
     }
     
     let networkService: NetworkService
@@ -56,7 +57,7 @@ extension RssParser: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         if elementName == RssFeedItemAttributes.item.rawValue {
-            rssFeedItem = RssFeedItem(title: "", description: "", link: "")
+            rssFeedItem = RssFeedItem(title: "", description: "", link: "", rawDate: "")
         }
         self.temporaryElementName = elementName
     }
@@ -78,6 +79,8 @@ extension RssParser: XMLParserDelegate {
                 rssFeedItem?.link += data
             } else if self.temporaryElementName == RssFeedItemAttributes.description.rawValue {
                 rssFeedItem?.description += data
+            } else if self.temporaryElementName == RssFeedItemAttributes.date.rawValue {
+                rssFeedItem?.rawDate += data
             }
         }
     }

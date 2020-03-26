@@ -12,7 +12,8 @@ class FeedScreenCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -20,10 +21,12 @@ class FeedScreenCell: UITableViewCell {
     func setupCell(with item: RssFeedItem) {
         titleLabel.text = item.title
         descriptionLabel.text = item.description
+        dateLabel.text = item.date
     }
     
     func nullifyLabelsText() {
         titleLabel.text = nil
         descriptionLabel.text = nil
+        dateLabel.text = nil
     }
 }
